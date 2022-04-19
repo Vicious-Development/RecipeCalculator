@@ -1,3 +1,7 @@
+package items;
+
+import recipe.Recipe;
+
 public class ItemStack {
     public Item item;
     public int size;

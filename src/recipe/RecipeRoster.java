@@ -1,3 +1,8 @@
+package recipe;
+
+import items.Item;
+import items.ItemStack;
+
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -10,7 +15,8 @@ public class RecipeRoster {
         netYield.clear();
     }
     public void add(int toProduce, Item i){
-        addByRecipe(toProduce,i.getRecipe());
+        Recipe r = i.getRecipe();
+        addByRecipe(r.getRequiredProcesses(i.stack(toProduce)),r);
     }
     public void addByItemStack(ItemStack stack){
         addByRecipe(stack.size,stack.getRecipe());
@@ -30,6 +36,10 @@ public class RecipeRoster {
     private int addByRecipeRec(int toProduce, Recipe recipe){
         int thisLayer = 0;
         for (ItemStack input : recipe.inputs) {
+            if(recipe.outputs.contains(input)){
+                System.out.println("Fatal error: Circular recipe.Recipe detected: " + recipe);
+                System.exit(0);
+            }
             input = input.clone();
             input.size*=toProduce;
             if(input.isRaw()){
@@ -50,6 +60,7 @@ public class RecipeRoster {
         }
         for (ItemStack output : recipe.outputs) {
             output = output.clone();
+            output.size*=toProduce;
             addOutput(output);
         }
         addRecipe(recipe,toProduce);
@@ -90,7 +101,7 @@ public class RecipeRoster {
         return ret;
     }
     public String recipeSteps(){
-        StringBuilder ret = new StringBuilder("Recipe Steps: ");
+        StringBuilder ret = new StringBuilder("recipe.Recipe Steps: ");
         AtomicInteger total = new AtomicInteger(0);
         recipeCounts.forEach((k,v)->{
             total.getAndAdd(v);

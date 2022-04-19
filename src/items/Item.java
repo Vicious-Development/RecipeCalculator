@@ -1,3 +1,7 @@
+package items;
+
+import recipe.Recipe;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +27,7 @@ public class Item {
     public static Item solid(String name){
         return new Item(name);
     }
+    public static Item durability(String name) {return new Item("TOOL:"+name);}
     public ItemStack stack(){
         return new ItemStack(this);
     }
@@ -30,11 +35,19 @@ public class Item {
         return new ItemStack(this,i);
     }
     public Recipe getRecipe() {
-        try {
-            return recipesYielding.get(0);
-        } catch (Exception e){
-            return null;
+        Recipe best = null;
+        for (Recipe recipe : recipesYielding) {
+            if(recipe.isAvailable()){
+                if(best != null){
+                    if(recipe.priority > best.priority) best = recipe;
+                }
+                else best = recipe;
+            }
         }
+        if(best == null){
+            throw new IllegalArgumentException("The following recipes are not usable in the game's current state, please enable the required gamestates! " + recipesYielding);
+        }
+        return best;
     }
 
     public boolean isRaw() {

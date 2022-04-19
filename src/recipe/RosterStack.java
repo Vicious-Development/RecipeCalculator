@@ -1,4 +1,9 @@
-public class RosterStack extends ItemStack{
+package recipe;
+
+import items.Item;
+import items.ItemStack;
+
+public class RosterStack extends ItemStack {
     public RosterStack(Item i) {
         super(i);
     }

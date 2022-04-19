@@ -1,16 +1,36 @@
+package recipe;
+
+import calculator.Main;
+import items.ItemStack;
+import states.impl.GameState;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Recipe {
+    //The required state of the game that the recipe is tied to.
+    //I.E. if the power tier is LV or the required machine is obtained.
+    public List<GameState> requiredState = new ArrayList<>();
     public List<ItemStack> inputs;
     public List<ItemStack> outputs;
     public String desc;
+    public int priority = 0;
     public Recipe(List<ItemStack> in, List<ItemStack> out){
         inputs=in;
         outputs=out;
         for (ItemStack itemStack : out) {
             itemStack.item.addRecipe(this);
         }
+    }
+    public Recipe addRequiredStates(GameState... states){
+        for (GameState state : states) {
+            requiredState.add(state);
+        }
+        return this;
+    }
+    public Recipe priority(int priority){
+        this.priority=priority;
+        return this;
     }
     public Recipe(ItemStack... items){
         inputs = new ArrayList<>();
@@ -36,6 +56,14 @@ public class Recipe {
         }
         return 0;
     }
+    public boolean isAvailable() {
+        for (GameState gameState : requiredState) {
+            if(!gameState.isActive(Main.stateContainer)){
+                return false;
+            }
+        }
+        return true;
+    }
     public String toString(){
         String ret = desc;
         for (ItemStack input : inputs) {
@@ -47,6 +75,14 @@ public class Recipe {
         }
         return ret;
     }
+
+    /**
+     * Info on Gamestates, All gamestates included here are using "or" states which can depend on multiple values.
+     * This allows us to include multiple machines of the same name from different mods.
+     * If you want to add a mod or modpack, add a class in the states package.
+     * @param items
+     * @return
+     */
     public static Recipe crafting(ItemStack... items){
         Recipe r = new Recipe(items);
         r.desc = "Crafting: ";
@@ -77,9 +113,9 @@ public class Recipe {
         r.desc = "Smelting: ";
         return r;
     }
-    public static Recipe compacting(ItemStack... items){
+    public static Recipe compressing(ItemStack... items){
         Recipe r = new Recipe(items);
-        r.desc = "Compacting: ";
+        r.desc = "Compressor: ";
         return r;
     }
     public static Recipe plateBending(ItemStack... items){
@@ -94,7 +130,7 @@ public class Recipe {
     }
     public static Recipe alloySmelter(ItemStack... items){
         Recipe r = new Recipe(items);
-        r.desc = "AlloySmelting: ";
+        r.desc = "AlloySmelter: ";
         return r;
     }
     public static Recipe chemicalReactor(ItemStack... items){
@@ -109,12 +145,62 @@ public class Recipe {
     }
     public static Recipe extracting(ItemStack... items){
         Recipe r = new Recipe(items);
-        r.desc = "Extracting: ";
+        r.desc = "Extractor: ";
         return r;
     }
     public static Recipe assembler(ItemStack... items){
         Recipe r = new Recipe(items);
-        r.desc = "Assembling: ";
+        r.desc = "Assembler: ";
+        return r;
+    }
+    public static Recipe brickForming(ItemStack... items){
+        Recipe r = new Recipe(items);
+        r.desc = "BrickForming: ";
+        return r;
+    }
+    public static Recipe mixing(ItemStack... items){
+        Recipe r = new Recipe(items);
+        r.desc = "Mixer: ";
+        return r;
+    }
+    public static Recipe centrifuging(ItemStack... items){
+        Recipe r = new Recipe(items);
+        r.desc = "Centrifuge: ";
+        return r;
+    }
+    public static Recipe polarize(ItemStack... items){
+        Recipe r = new Recipe(items);
+        r.desc = "Polarize: ";
+        return r;
+    }
+    public static Recipe formingPress(ItemStack... items){
+        Recipe r = new Recipe(items);
+        r.desc = "FormingPress: ";
+        return r;
+    }
+    public static Recipe forgeHammer(ItemStack... items){
+        Recipe r = new Recipe(items);
+        r.desc = "ForgeHammer: ";
+        return r;
+    }
+    public static Recipe extruding(ItemStack... items){
+        Recipe r = new Recipe(items);
+        r.desc = "Extruding: ";
+        return r;
+    }
+    public static Recipe cuttingMachine(ItemStack... items){
+        Recipe r = new Recipe(items);
+        r.desc = "CuttingMachine: ";
+        return r;
+    }
+    public static Recipe ringSolidification(ItemStack... items){
+        Recipe r = new Recipe(items);
+        r.desc = "RingSolidification: ";
+        return r;
+    }
+    public static Recipe rotorSolidification(ItemStack... items){
+        Recipe r = new Recipe(items);
+        r.desc = "RotorSolidification: ";
         return r;
     }
 }
