@@ -101,7 +101,7 @@ public class RecipeRoster {
         return ret;
     }
     public String recipeSteps(){
-        StringBuilder ret = new StringBuilder("recipe.Recipe Steps: ");
+        StringBuilder ret = new StringBuilder("Recipe Steps: ");
         AtomicInteger total = new AtomicInteger(0);
         recipeCounts.forEach((k,v)->{
             total.getAndAdd(v);

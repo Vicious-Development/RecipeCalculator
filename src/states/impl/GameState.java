@@ -1,8 +1,6 @@
 package states.impl;
 
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 public class GameState {
     protected final String NAME;
@@ -74,7 +72,7 @@ public class GameState {
         }
     }
     public static class And extends GameState{
-        public Set<GameState> requiredStates = new HashSet<>();
+        public List<GameState> requiredStates = new ArrayList<>();
         public And(GameState... states){
             super("AND");
             for (GameState state : states) {

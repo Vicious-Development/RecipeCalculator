@@ -5,26 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d4d47244-77e7-43de-9182-7558232b7592" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/commands/Command.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/commands/CommandHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/commands/GenerateRoster.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/items/GTNH.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/states/GTNHGameStates.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/states/TinkersConstructGameStates.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/states/VanillaGameStates.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/states/impl/GameState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/states/impl/GameStateContainer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GTNH.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/items/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ItemStack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/items/ItemStack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/calculator/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Recipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/recipe/Recipe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RecipeRoster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/recipe/RecipeRoster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RosterStack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/recipe/RosterStack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameStates.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GameStates.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/calculator/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/calculator/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recipe/RecipeRoster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/recipe/RecipeRoster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/states/impl/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/states/impl/GameState.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +79,7 @@
       <workItem from="1650296420318" duration="7422000" />
       <workItem from="1650323817747" duration="1872000" />
       <workItem from="1650335170266" duration="5655000" />
-      <workItem from="1650375481454" duration="4139000" />
+      <workItem from="1650375481454" duration="6486000" />
     </task>
     <servers />
   </component>
