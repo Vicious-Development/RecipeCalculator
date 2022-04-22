@@ -66,6 +66,9 @@ public class GTNH {
     public static final Item REDALLOYINGOT = add(Item.solid("REDALLOYINGOT"));
     public static final Item BRONZEINGOT = add(Item.solid("BRONZEINGOT"));
     public static final Item WROUGHTIRONINGOT = add(Item.solid("WROUGHTIRONINGOT"));
+    public static final Item BRASSINGOT = add(Item.solid("BRASSINGOT"));
+    public static final Item ALUMINUMINGOT = add(Item.solid("ALUMINUMINGOT"));
+    public static final Item COBALTBRASSINGOT = add(Item.solid("COBALTBRASSINGOT"));
     static void ingots(){
         Recipe.crafting(IRONINGOT.stack(),TOOLSAW.stack(),IRONNUGGET.stack(9));
         Recipe.furnace(IRONNUGGET.stack(),WROUGHTIRONNUGGET.stack());
@@ -87,6 +90,8 @@ public class GTNH {
     public static final Item SMALLREDALLOYDUST = add(Item.solid("SMALLREDALLOYDUST"));
     public static final Item SMALLCLAYDUST = add(Item.solid("SMALLCLAYDUST"));
     public static final Item SMALLBRICKDUST = add(Item.solid("SMALLBRICKDUST"));
+    public static final Item SMALLCOBALTBRASSDUST = add(Item.solid("SMALLCOBALTBRASSDUST"));
+    public static final Item SMALLDIAMONDUST = add(Item.solid("SMALLDIAMONDUST"));
     //DUST NORMAL
     public static final Item FLINTDUST = add(Item.solid("FLINTDUST"));
     public static final Item DUSTRAWRUBBER = add(Item.solid("DUSTRAWRUBBER"));
@@ -104,6 +109,11 @@ public class GTNH {
     public static final Item BRONZEDUST = add(Item.solid("BRONZEDUST"));
     public static final Item TINDUST = add(Item.solid("TINDUST"));
     public static final Item COPPERDUST = add(Item.solid("COPPERDUST"));
+    public static final Item ZINCDUST = add(Item.solid("ZINCDUST"));
+    public static final Item COBALTDUST = add(Item.solid("COBALTDUST"));
+    public static final Item BRASSDUST = add(Item.solid("BRASSDUST"));
+    public static final Item ALUMINUMDUST = add(Item.solid("ALUMINUMDUST"));
+    public static final Item COBALTBRASSDUST = add(Item.solid("COBALTBRASSDUST"));
 
     //FLUIDS
     public static final Item BUCKETOFCONCRETE = add(Item.fluid("BUCKETOFCONCRETE"));
@@ -147,9 +157,23 @@ public class GTNH {
         //Copper dust
         Recipe.crafting(COPPERINGOT.stack(),TOOLMORTAR.stack(),COPPERDUST.stack());
         Recipe.pulverize(COPPERINGOT.stack(),COPPERDUST.stack()).addRequiredStates(GTNHGameStates.MACERATOR).priority(100);
+        //Zinc dust
+        Recipe.crafting(ZINCINGOT.stack(),TOOLMORTAR.stack(),ZINCDUST.stack());
+        Recipe.pulverize(ZINCINGOT.stack(),ZINCDUST.stack()).addRequiredStates(GTNHGameStates.MACERATOR).priority(100);
+        //Brass dust
+        Recipe.crafting(COPPERDUST.stack(3),ZINCDUST.stack(1),BRASSDUST.stack(3));
+        Recipe.mixing(COPPERDUST.stack(3),ZINCDUST.stack(1),BRASSDUST.stack(4)).addRequiredStates(GTNHGameStates.MIXER).priority(100);
+        //Cobalt Brass Dust
+        Recipe.crafting(BRASSDUST.stack(7),ALUMINUMDUST.stack(),COBALTDUST.stack(),COBALTBRASSDUST.stack(8));
+        Recipe.mixing(BRASSDUST.stack(7),ALUMINUMDUST.stack(),COBALTDUST.stack(),COBALTBRASSDUST.stack(9)).addRequiredStates(GTNHGameStates.MIXER).priority(100);
+        //Cobalt Brass ingot
+        Recipe.furnace(COBALTBRASSDUST.stack(),COBALTBRASSINGOT.stack());
         //Bronze ingot 2
         Recipe.crafting(TINDUST.stack(1),COPPERDUST.stack(3),BRONZEDUST.stack(3));
         Recipe.furnace(BRONZEDUST.stack(),BRONZEINGOT.stack());
+        //Brass Ingot
+        Recipe.furnace(BRASSDUST.stack(),BRASSINGOT.stack());
+        Recipe.alloySmelter(COPPERINGOT.stack(3),ZINCINGOT.stack(),BRASSINGOT.stack()).addRequiredStates(GTNHGameStates.ALLOYSMELTER).priority(100);
     }
     //RODS
     public static final Item IRONROD = add(Item.solid("IRONROD"));
@@ -157,6 +181,7 @@ public class GTNH {
     public static final Item REDALLOYROD = add(Item.solid("REDALLOYROD"));
     public static final Item MAGNETICIRONROD = add(Item.solid("MAGNETICIRONROD"));
     public static final Item STEELROD = add(Item.solid("STEELROD"));
+    public static final Item COBALTBRASSROD = add(Item.solid("COBALTBRASSROD"));
     static void rods(){
         Recipe.crafting(IRONINGOT.stack(),TOOLFILE.stack(),IRONROD.stack());
         Recipe.lathe(IRONINGOT.stack(),null,IRONROD.stack(),SMALLIRONDUST.stack(2)).priority(100).addRequiredStates(GTNHGameStates.LATHE);
@@ -166,6 +191,8 @@ public class GTNH {
         Recipe.lathe(REDALLOYINGOT.stack(),null,REDALLOYROD.stack(),SMALLREDALLOYDUST.stack(2)).priority(100).addRequiredStates(GTNHGameStates.LATHE);
         Recipe.crafting(STEELINGOT.stack(),TOOLFILE.stack(),STEELROD.stack());
         Recipe.lathe(STEELINGOT.stack(),null,STEELROD.stack(),SMALLSTEELDUST.stack(2)).priority(100).addRequiredStates(GTNHGameStates.LATHE);
+        Recipe.crafting(COBALTBRASSINGOT.stack(),TOOLFILE.stack(),COBALTBRASSROD.stack());
+        Recipe.lathe(COBALTBRASSINGOT.stack(),null,COBALTBRASSROD.stack(),SMALLCOBALTBRASSDUST.stack(2)).priority(100).addRequiredStates(GTNHGameStates.LATHE);
         Recipe.crafting(IRONROD.stack(),REDSTONE.stack(4),MAGNETICIRONROD.stack());
         Recipe.polarize(IRONROD.stack(),MAGNETICIRONROD.stack()).addRequiredStates(GTNHGameStates.POLARIZER).priority(100);
     }
@@ -187,6 +214,7 @@ public class GTNH {
     public static final Item RUBBERSHEET = add(Item.solid("RUBBERSHEET"));
     public static final Item WOODPLANK = add(Item.solid("WOODPLANK"));
     public static final Item REDALLOYPLATE = add(Item.solid("REDALLOYPLATE"));
+    public static final Item COBALTBRASSPLATE = add(Item.solid("COBALTBRASSPLATE"));
     static void plates(){
         plate(WROUGHTIRONINGOT,WROUGHTIRONPLATE);
         plate(IRONINGOT,IRONPLATE);
@@ -196,6 +224,7 @@ public class GTNH {
         plate(BRONZEINGOT,BRONZEPLATE);
         plate(ZINCINGOT,ZINCPLATE);
         plate(REDALLOYINGOT,REDALLOYPLATE);
+        plate(COBALTBRASSINGOT,COBALTBRASSPLATE);
         Recipe.compressing(WOODPULP.stack(8),WOODPLANK.stack());
         Recipe.plateSolidification(MOLTENRUBBERINGOT.stack(),RUBBERSHEET.stack());
     }
@@ -316,12 +345,17 @@ public class GTNH {
     //Gear
     public static final Item SMALLSTEELGEAR = add(Item.solid("SMALLSTEELGEAR"));
     public static final Item STEELGEAR = add(Item.solid("STEELGEAR"));
+    public static final Item COBALTBRASSGEAR = add(Item.solid("COBALTBRASSGEAR"));
     static void gears(){
         Recipe.crafting(TOOLHAMMER.stack(),TOOLWIRECUTTERS.stack(),STEELROD.stack(2),STEELPLATE.stack(),SMALLSTEELGEAR.stack());
         Recipe.extruding(STEELINGOT.stack(),SMALLSTEELGEAR.stack()).addRequiredStates(GTNHGameStates.EXTRUDER.withTier(GTNHGameStates.MV)).priority(100);
-        Recipe.crafting(STEELPLATE.stack(4),STEELINGOT.stack(4),STEELGEAR.stack());
+        Recipe.crafting(STEELPLATE.stack(4),STEELROD.stack(4),STEELGEAR.stack());
         Recipe.alloySmelter(STEELINGOT.stack(8),STEELGEAR.stack()).addRequiredStates(GTNHGameStates.ALLOYSMELTER).priority(50);
         Recipe.extruding(STEELINGOT.stack(4),STEELGEAR.stack()).addRequiredStates(GTNHGameStates.EXTRUDER.withTier(GTNHGameStates.MV)).priority(100);
+        Recipe.crafting(COBALTBRASSPLATE.stack(4),COBALTBRASSROD.stack(4),COBALTBRASSGEAR.stack());
+        Recipe.alloySmelter(COBALTBRASSINGOT.stack(8),COBALTBRASSGEAR.stack()).addRequiredStates(GTNHGameStates.ALLOYSMELTER).priority(50);
+        Recipe.extruding(COBALTBRASSINGOT.stack(4),COBALTBRASSGEAR.stack()).addRequiredStates(GTNHGameStates.EXTRUDER.withTier(GTNHGameStates.MV)).priority(100);
+
     }
     //Pipes
     public static final Item BRONZEFLUIDPIPE = add(Item.solid("BRONZEFLUIDPIPE"));
@@ -354,7 +388,7 @@ public class GTNH {
         Recipe.crafting(WOODPLANK.stack(),STICKYRESIN.stack(2),COATEDCIRCUITBOARD.stack());
         Recipe.crafting(COPPERWIRE1.stack(8),COATEDCIRCUITBOARD.stack(),LVCIRCUITBOARD.stack());
         Recipe.crafting(REDALLOYBOLT.stack(),COPPERWIRE1.stack(3),FINECOPPERWIRE.stack(2),STEELROD.stack(2),GLASSTUBE.stack(),VACUUMTUBE.stack());
-        Recipe.crafting(COALDUST.stack(),COPPERWIRE1.stack(1),FINECOPPERWIRE.stack(2),STICKYRESIN.stack(2),RESISTOR.stack());
+        Recipe.crafting(COALDUST.stack(),COPPERWIRE1.stack(2),FINECOPPERWIRE.stack(2),STICKYRESIN.stack(2),RESISTOR.stack());
         Recipe.crafting(REDALLOYWIRE1.stack(3),VACUUMTUBE.stack(2),LVCIRCUITBOARD.stack(),RESISTOR.stack(2),STEELCASING.stack(),ELECTRONICCIRCUIT.stack());
     }
     //CASING
@@ -457,6 +491,19 @@ public class GTNH {
     static void sifters(){
         Recipe.crafting(ITEMFILTER.stack(2),TINCABLE1.stack(2),LVPISTON.stack(2),ELECTRONICCIRCUIT.stack(2),LVMACHINEHULL.stack(),LVSIFTER.stack());
     }
+    //Mixers
+    public static final Item LVMIXER = add(Item.solid("LVMIXER"));
+    static void mixers(){
+        Recipe.crafting(ELECTRONICCIRCUIT.stack(2),LVMACHINEHULL.stack(),GLASS.stack(4),TINROTOR.stack(),LVMOTOR.stack(),LVMIXER.stack());
+    }
+    //Cutting Machines
+    public static final Item DIAMONDSAWBLADE = add(Item.solid("DIAMONDSAWBLADE"));
+    public static final Item LVCUTTINGMACHINE = add(Item.solid("LVCUTTINGMACHINE"));
+    static void cuttingMachines(){
+        Recipe.crafting(COBALTBRASSGEAR.stack(),SMALLDIAMONDUST.stack(4),DIAMONDSAWBLADE.stack());
+        Recipe.crafting(DIAMONDSAWBLADE.stack(),LVMOTOR.stack(),TINCABLE1.stack(2),LVCONVEYOR.stack(),LVMACHINEHULL.stack(),GLASS.stack(),ELECTRONICCIRCUIT.stack(2),LVCUTTINGMACHINE.stack());
+    }
+
     //GT RECIPES
     static void misc(){
         Recipe.crafting(TOOLSAW.stack(),PLANK.stack(2),STICK.stack(4));
@@ -510,5 +557,7 @@ public class GTNH {
         furnaces();
         pumpBlocks();
         sifters();
+        mixers();
+        cuttingMachines();
     }
 }
