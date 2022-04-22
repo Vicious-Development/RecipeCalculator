@@ -368,6 +368,8 @@ public class GTNH {
     public static final Item LARGESTEELFLUIDPIPE = add(Item.solid("LARGESTEELFLUIDPIPE"));
     public static final Item SMALLSTEELFLUIDPIPE = add(Item.solid("SMALLSTEELFLUIDPIPE"));
     public static final Item TINYTINITEMPIPE = add(Item.solid("TINYTINITEMPIPE"));
+    public static final Item LONGDISTANCEFLUIDPIPE = add(Item.solid("LONGDISTANCEFLUIDPIPE"));
+    public static final Item LONGDISTANCEFLUIDPIPELINE = add(Item.solid("LONGDISTANCEFLUIDPIPELINE"));
     //TODO:Add MV Extruding pipe recipes.
     static void pipes(){
         pipe(BRONZEPLATE,BRONZEFLUIDPIPE);
@@ -377,6 +379,9 @@ public class GTNH {
         Recipe.crafting(STEELPLATE.stack(6),TOOLHAMMER.stack(),TOOLWRENCH.stack(),SMALLSTEELFLUIDPIPE.stack(6));
         Recipe.crafting(STEELPLATE.stack(6),TOOLHAMMER.stack(),TOOLWRENCH.stack(),LARGESTEELFLUIDPIPE.stack(1));
         Recipe.crafting(DOUBLESTEELPLATE.stack(6),TOOLHAMMER.stack(),TOOLWRENCH.stack(),HUGESTEELFLUIDPIPE.stack(1));
+        Recipe.crafting(STEELPLATE.stack(6),TOOLWRENCH.stack(),LARGESTEELFLUIDPIPE.stack(2),LONGDISTANCEFLUIDPIPE.stack(32));
+        Recipe.crafting(STEELGEAR.stack(4),HUGESTEELFLUIDPIPE.stack(2),STEELPLATE.stack(2),TOOLWRENCH.stack(),LONGDISTANCEFLUIDPIPELINE.stack(1));
+        Recipe.assembler(STEELGEAR.stack(1),HUGESTEELFLUIDPIPE.stack(1),STEELPLATE.stack(3),MOLTENTIN.stack(72),LONGDISTANCEFLUIDPIPELINE.stack(1)).priority(100).addRequiredStates(GTNHGameStates.ASSEMBLINGMACHINE);
     }
     static void pipe(Item plate, Item pipe){
         Recipe.crafting(plate.stack(6),TOOLWRENCH.stack(),TOOLHAMMER.stack(),pipe.stack(2));
@@ -510,6 +515,12 @@ public class GTNH {
         Recipe.crafting(COBALTBRASSGEAR.stack(),SMALLDIAMONDUST.stack(4),DIAMONDSAWBLADE.stack());
         Recipe.crafting(DIAMONDSAWBLADE.stack(),LVMOTOR.stack(),TINCABLE1.stack(2),LVCONVEYOR.stack(),LVMACHINEHULL.stack(),GLASS.stack(),ELECTRONICCIRCUIT.stack(2),LVCUTTINGMACHINE.stack());
     }
+    //Fluid Extractors
+    public static final Item LVFLUIDEXTRACTOR = add(Item.solid("LVFLUIDEXTRACTOR"));
+    static void fluidExtractors(){
+        Recipe.crafting(ELECTRONICCIRCUIT.stack(2),TINCABLE1.stack(2),LVPISTON.stack(),LVPUMP.stack(),LVMACHINEHULL.stack(),GLASS.stack(2),LVFLUIDEXTRACTOR.stack());
+    }
+
 
     //GT RECIPES
     static void misc(){
@@ -566,5 +577,6 @@ public class GTNH {
         sifters();
         mixers();
         cuttingMachines();
+        fluidExtractors();
     }
 }

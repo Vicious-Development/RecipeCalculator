@@ -34,6 +34,7 @@ public class GTNHGameStates {
     public static final GameState.Tiered ALLOYSMELTER = add(new GameState.Tiered("ALLOY SMELTER",STEAM));
     public static final GameState.Tiered LATHE = add(new GameState.Tiered("LATHE",LV));
     public static final GameState.Tiered FLUIDSOLIDIFIER = add(new GameState.Tiered("FLUID SOLIDIFIER",LV));
+    public static final GameState.Tiered FLUIDEXTRACTOR = add(new GameState.Tiered("FLUID EXTRACTOR",LV));
     public static final GameState.Tiered FLUIDCANNINGMACHINE = add(new GameState.Tiered("FLUID CANNING MACHINE",LV));
     public static final GameState.Tiered CHEMICALREACTOR = add(new GameState.Tiered("CHEMICAL REACTOR",LV));
     public static final GameState.Tiered OREWASHINGMACHINE = add(new GameState.Tiered("ORE WASHING MACHINE",LV));

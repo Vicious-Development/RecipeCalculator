@@ -26,7 +26,7 @@ public class Main {
             }
         }
         RecipeRoster roster = new RecipeRoster();//LVSelfSustainingCombustionGenerator();
-        roster.add(4,GTNH.ELECTRONICCIRCUIT);
+        roster.add(2,GTNH.LONGDISTANCEFLUIDPIPELINE);
         System.out.println(roster);
     }
 
