@@ -215,6 +215,8 @@ public class GTNH {
     public static final Item WOODPLANK = add(Item.solid("WOODPLANK"));
     public static final Item REDALLOYPLATE = add(Item.solid("REDALLOYPLATE"));
     public static final Item COBALTBRASSPLATE = add(Item.solid("COBALTBRASSPLATE"));
+    //Double
+    public static final Item DOUBLESTEELPLATE = add(Item.solid("DOUBLESTEELPLATE"));
     static void plates(){
         plate(WROUGHTIRONINGOT,WROUGHTIRONPLATE);
         plate(IRONINGOT,IRONPLATE);
@@ -225,6 +227,7 @@ public class GTNH {
         plate(ZINCINGOT,ZINCPLATE);
         plate(REDALLOYINGOT,REDALLOYPLATE);
         plate(COBALTBRASSINGOT,COBALTBRASSPLATE);
+        Recipe.crafting(STEELPLATE.stack(2),TOOLHAMMER.stack(),DOUBLESTEELPLATE.stack());
         Recipe.compressing(WOODPULP.stack(8),WOODPLANK.stack());
         Recipe.plateSolidification(MOLTENRUBBERINGOT.stack(),RUBBERSHEET.stack());
     }
@@ -361,6 +364,8 @@ public class GTNH {
     public static final Item BRONZEFLUIDPIPE = add(Item.solid("BRONZEFLUIDPIPE"));
     public static final Item LARGEBRONZEFLUIDPIPE = add(Item.solid("LARGEBRONZEFLUIDPIPE"));
     public static final Item STEELFLUIDPIPE = add(Item.solid("STEELFLUIDPIPE"));
+    public static final Item HUGESTEELFLUIDPIPE = add(Item.solid("HUGESTEELFLUIDPIPE"));
+    public static final Item LARGESTEELFLUIDPIPE = add(Item.solid("LARGESTEELFLUIDPIPE"));
     public static final Item SMALLSTEELFLUIDPIPE = add(Item.solid("SMALLSTEELFLUIDPIPE"));
     public static final Item TINYTINITEMPIPE = add(Item.solid("TINYTINITEMPIPE"));
     //TODO:Add MV Extruding pipe recipes.
@@ -370,6 +375,8 @@ public class GTNH {
         Recipe.crafting(TINPLATE.stack(6),TOOLHAMMER.stack(),TOOLWRENCH.stack(),TINYTINITEMPIPE.stack(8));
         Recipe.crafting(BRONZEPLATE.stack(6),TOOLHAMMER.stack(),TOOLWRENCH.stack(),LARGEBRONZEFLUIDPIPE.stack());
         Recipe.crafting(STEELPLATE.stack(6),TOOLHAMMER.stack(),TOOLWRENCH.stack(),SMALLSTEELFLUIDPIPE.stack(6));
+        Recipe.crafting(STEELPLATE.stack(6),TOOLHAMMER.stack(),TOOLWRENCH.stack(),LARGESTEELFLUIDPIPE.stack(1));
+        Recipe.crafting(DOUBLESTEELPLATE.stack(6),TOOLHAMMER.stack(),TOOLWRENCH.stack(),HUGESTEELFLUIDPIPE.stack(1));
     }
     static void pipe(Item plate, Item pipe){
         Recipe.crafting(plate.stack(6),TOOLWRENCH.stack(),TOOLHAMMER.stack(),pipe.stack(2));
