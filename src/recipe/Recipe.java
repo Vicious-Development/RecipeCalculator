@@ -203,4 +203,19 @@ public class Recipe {
         r.desc = "RotorSolidification: ";
         return r;
     }
+    public static Recipe distilling(ItemStack... items){
+        Recipe r = new Recipe(items);
+        r.desc = "Distilling: ";
+        return r;
+    }
+    public static Recipe fluidHeating(ItemStack... items){
+        Recipe r = new Recipe(items);
+        r.desc = "FluidHeating: ";
+        return r;
+    }
+    public static Recipe electricBlasting(ItemStack... items){
+        Recipe r = new Recipe(items);
+        r.desc = "EBF: ";
+        return r;
+    }
 }

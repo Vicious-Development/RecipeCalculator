@@ -4,26 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d4d47244-77e7-43de-9182-7558232b7592" name="Changes" comment="">
+    <list default="true" id="2fb3e187-05d7-45df-b485-6a82d3ff990a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameStates.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GameStates.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RecipeCalculator/calculator/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeCalculator/calculator/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RecipeCalculator/items/GTNH.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeCalculator/items/GTNH.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeCalculator/recipe/Recipe.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeCalculator/recipe/Recipe.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RecipeCalculator/recipe/RecipeRoster.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeCalculator/recipe/RecipeRoster.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RecipeCalculator/states/GTNHGameStates.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeCalculator/states/GTNHGameStates.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/calculator/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/calculator/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/items/GTNH.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/items/GTNH.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recipe/Recipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/recipe/Recipe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recipe/RecipeRoster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/recipe/RecipeRoster.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/states/GTNHGameStates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/states/GTNHGameStates.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -39,7 +38,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="27wAJ7kjS5lj8UdFsJUfDqWrn5C" />
+  <component name="ProjectId" id="28AJiHIU9s3ip3Y6gG1Xvt2XZSc" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -47,18 +46,22 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="calculator.Main" />
       <module name="RecipeCalculator" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="calculator.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -72,36 +75,22 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="d4d47244-77e7-43de-9182-7558232b7592" name="Changes" comment="" />
-      <created>1650220702265</created>
+      <changelist id="2fb3e187-05d7-45df-b485-6a82d3ff990a" name="Changes" comment="" />
+      <created>1650653583820</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1650220702265</updated>
-      <workItem from="1650220703872" duration="13286000" />
-      <workItem from="1650296420318" duration="7422000" />
-      <workItem from="1650323817747" duration="1872000" />
-      <workItem from="1650335170266" duration="5655000" />
-      <workItem from="1650375481454" duration="6486000" />
-      <workItem from="1650424413878" duration="2793000" />
-      <workItem from="1650467478575" duration="1731000" />
-      <workItem from="1650589830780" duration="19000" />
-      <workItem from="1650592881034" duration="5101000" />
-      <workItem from="1650646529437" duration="24000" />
+      <updated>1650653583820</updated>
+      <workItem from="1650653585986" duration="1939000" />
+      <workItem from="1650725259842" duration="9970000" />
+      <workItem from="1650761251106" duration="2317000" />
+      <workItem from="1650774077644" duration="1889000" />
+      <workItem from="1650815923632" duration="1356000" />
+      <workItem from="1650901763921" duration="5773000" />
+      <workItem from="1651001018900" duration="5376000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>

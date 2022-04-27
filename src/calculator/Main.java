@@ -1,9 +1,8 @@
 package calculator;
 
 import items.GTNH;
+import recipe.Recipe;
 import recipe.RecipeRoster;
-import states.GTNHGameStates;
-import states.impl.GameState;
 import states.impl.GameStateContainer;
 
 import java.io.FileNotFoundException;
@@ -26,10 +25,20 @@ public class Main {
             }
         }
         RecipeRoster roster = new RecipeRoster();//LVSelfSustainingCombustionGenerator();
-        roster.add(2,GTNH.LONGDISTANCEFLUIDPIPELINE);
+        roster.add(24,GTNH.IRONTANKWALL);
+        roster.add(8,GTNH.IRONTANKGAUGE);
+        roster.add(2,GTNH.IRONTANKVALVE);
         System.out.println(roster);
+        //System.out.println(ironTankQuest());
     }
 
+    public static RecipeRoster ironTankQuest(){
+        RecipeRoster roster = new RecipeRoster();
+        roster.add(24,GTNH.IRONTANKWALL);
+        roster.add(2,GTNH.IRONTANKVALVE);
+        roster.add(8,GTNH.IRONTANKGAUGE);
+        return roster;
+    }
     /**
      * Oil pump quest
      */
@@ -55,6 +64,22 @@ public class Main {
         roster.add(2,GTNH.LVCOMBUSTIONGENERATOR);
         roster.add(8,GTNH.TINYTINITEMPIPE);
         roster.add(3,GTNH.ELECTRONICCIRCUIT);
+        return roster;
+    }
+    /**
+     * INITIAL EBF
+     */
+    public static RecipeRoster EBFQuest(){
+        RecipeRoster roster = new RecipeRoster();
+        roster.add(11,GTNH.HEATPROOFMACHINECASING);
+        roster.add(1,GTNH.ELECTRICBLASTFURNACE);
+        roster.add(1,GTNH.LVINPUTBUS);
+        roster.add(1,GTNH.LVOUTPUTBUS);
+        roster.add(1,GTNH.LVINPUTHATCH);
+        roster.add(1,GTNH.MAINTENANCEHATCH);
+        roster.add(1,GTNH.LVMUFFLERHATCH);
+        roster.add(2,GTNH.LVENERGYHATCH);
+        roster.add(16,GTNH.CUPRONICKELCOILBLOCK);
         return roster;
     }
 

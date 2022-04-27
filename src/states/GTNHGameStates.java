@@ -52,4 +52,6 @@ public class GTNHGameStates {
     public static final GameState.Tiered POLARIZER = add(new GameState.Tiered("POLARIZER",LV));
     public static final GameState.Tiered FORMINGPRESS = add(new GameState.Tiered("FORMING PRESS",LV));
     public static final GameState.Tiered CUTTINGMACHINE = add(new GameState.Tiered("CUTTING MACHINE",LV));
+    public static final GameState.Tiered FLUIDHEATER = add(new GameState.Tiered("FLUID HEATER",LV));
+    public static final GameState.Tiered ELECTRICBLASTFURNACE = add(new GameState.Tiered("ELECTRIC BLAST FURNACE",LV));
 }

@@ -1,5 +1,6 @@
 package recipe;
 
+import items.GTNH;
 import items.Item;
 import items.ItemStack;
 
@@ -51,10 +52,17 @@ public class RecipeRoster {
                 out.size *= -1;
                 addOutput(out);
                 int recipesNeeded = r.getRequiredProcesses(input);
+                int lyr = 0;
                 if(netYield.get(out.id()).size < 0) {
-                    int lyr = 1 + addByRecipeRec(recipesNeeded, r);
-                    thisLayer = Math.max(lyr, thisLayer);
+                    lyr = 1 + addByRecipeRec(recipesNeeded, r);
                 }
+                else{
+                    RecipeUseStats rUS = recipeUseData.get(r);
+                    if(rUS != null) {
+                        lyr = 1 + rUS.order;
+                    }
+                }
+                thisLayer = Math.max(lyr, thisLayer);
                 addInput(input);
 
             }
@@ -77,6 +85,7 @@ public class RecipeRoster {
         }
         else{
             rs.numUses+=count;
+            rs.order=Math.max(layer,rs.order);
         }
     }
     private void addOutput(ItemStack output) {
