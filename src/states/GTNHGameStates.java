@@ -36,6 +36,7 @@ public class GTNHGameStates {
     public static final GameState.Tiered FLUIDSOLIDIFIER = add(new GameState.Tiered("FLUID SOLIDIFIER",LV));
     public static final GameState.Tiered FLUIDEXTRACTOR = add(new GameState.Tiered("FLUID EXTRACTOR",LV));
     public static final GameState.Tiered FLUIDCANNINGMACHINE = add(new GameState.Tiered("FLUID CANNING MACHINE",LV));
+    public static final GameState.Tiered CANNINGMACHINE = add(new GameState.Tiered("CANNING MACHINE",LV));
     public static final GameState.Tiered CHEMICALREACTOR = add(new GameState.Tiered("CHEMICAL REACTOR",LV));
     public static final GameState.Tiered OREWASHINGMACHINE = add(new GameState.Tiered("ORE WASHING MACHINE",LV));
     public static final GameState.Tiered THERMALCENTRIFUGE = add(new GameState.Tiered("THERMAL CENTRIFUGE",LV));
@@ -53,5 +54,11 @@ public class GTNHGameStates {
     public static final GameState.Tiered FORMINGPRESS = add(new GameState.Tiered("FORMING PRESS",LV));
     public static final GameState.Tiered CUTTINGMACHINE = add(new GameState.Tiered("CUTTING MACHINE",LV));
     public static final GameState.Tiered FLUIDHEATER = add(new GameState.Tiered("FLUID HEATER",LV));
+    public static final GameState.Tiered CHEMICALBATH = add(new GameState.Tiered("CHEMICAL BATH",LV));
     public static final GameState.Tiered ELECTRICBLASTFURNACE = add(new GameState.Tiered("ELECTRIC BLAST FURNACE",LV));
+    public static final GameState.Tiered ARCFURNACE = add(new GameState.Tiered("ARC FURNACE",LV));
+    public static final GameState.Tiered VACUUMFREEZER = add(new GameState.Tiered("VACUUM FREEZER",EV));
+    //Can obtain
+    public static final GameState HASPOLYETHYLENE = add(new GameState("HASPOLYETHYLENE"));
+    public static final GameState HASANNEALEDCOPPER = add(new GameState("HASANNEALEDCOPPER"));
 }

@@ -50,6 +50,7 @@ public class GameStateContainer {
                 continue;
             }
             StringBuilder val = new StringBuilder();
+            mode=0;
             for (int i = 0; i < line.length(); i++) {
                 char c = line.charAt(i);
                 //And
@@ -77,7 +78,6 @@ public class GameStateContainer {
                         for (String state : cache) {
                             and.addRequiredState(getState(state));
                         }
-                        val = new StringBuilder();
                         states.add(and);
 
                     }
@@ -86,9 +86,9 @@ public class GameStateContainer {
                         for (String state : cache) {
                             or.addAcceptedState(getState(state));
                         }
-                        val = new StringBuilder();
                         states.add(or);
                     }
+                    val = new StringBuilder();
                     mode = 0;
                     cache.clear();
                 }

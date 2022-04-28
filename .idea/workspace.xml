@@ -5,19 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2fb3e187-05d7-45df-b485-6a82d3ff990a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GameStates.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GameStates.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RecipeCalculator/calculator/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeCalculator/calculator/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RecipeCalculator/items/GTNH.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeCalculator/items/GTNH.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/RecipeCalculator/recipe/Recipe.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeCalculator/recipe/Recipe.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeCalculator/recipe/RecipeRoster.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeCalculator/recipe/RecipeRoster.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeCalculator/states/GTNHGameStates.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeCalculator/states/GTNHGameStates.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/calculator/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/calculator/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/items/GTNH.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/items/GTNH.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/recipe/Recipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/recipe/Recipe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/recipe/RecipeRoster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/recipe/RecipeRoster.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/states/GTNHGameStates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/states/GTNHGameStates.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/states/impl/GameStateContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/states/impl/GameStateContainer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,6 +84,12 @@
       <workItem from="1650815923632" duration="1356000" />
       <workItem from="1650901763921" duration="5773000" />
       <workItem from="1651001018900" duration="5376000" />
+      <workItem from="1651070828211" duration="23000" />
+      <workItem from="1651074165882" duration="905000" />
+      <workItem from="1651079284252" duration="3235000" />
+      <workItem from="1651101119457" duration="22000" />
+      <workItem from="1651104449624" duration="4000" />
+      <workItem from="1651164463419" duration="3025000" />
     </task>
     <servers />
   </component>

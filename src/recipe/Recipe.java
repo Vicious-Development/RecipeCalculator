@@ -218,4 +218,34 @@ public class Recipe {
         r.desc = "EBF: ";
         return r;
     }
+    public static Recipe fluidCanning(ItemStack... items){
+        Recipe r = new Recipe(items);
+        r.desc = "FluidCanning: ";
+        return r;
+    }
+    public static Recipe canning(ItemStack... items){
+        Recipe r = new Recipe(items);
+        r.desc = "Canning: ";
+        return r;
+    }
+    public static Recipe fluidExtracting(ItemStack... items) {
+        Recipe r = new Recipe(items);
+        r.desc = "FluidExtractor: ";
+        return r;
+    }
+    public static Recipe vacuumFreezing(ItemStack... items) {
+        Recipe r = new Recipe(items);
+        r.desc = "VacuumFreezing: ";
+        return r;
+    }
+    public static Recipe chemicalBath(ItemStack... items) {
+        Recipe r = new Recipe(items);
+        r.desc = "ChemicalBath: ";
+        return r;
+    }
+    public static Recipe arcFurnace(ItemStack... items) {
+        Recipe r = new Recipe(items);
+        r.desc = "ArcFurnace: ";
+        return r;
+    }
 }

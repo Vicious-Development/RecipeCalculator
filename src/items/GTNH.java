@@ -38,6 +38,9 @@ public class GTNH {
     //IC2
     public static final Item STICKYRESIN = add(Item.solid("STICKYRESIN"));
     public static final Item PLANTBALL = add(Item.solid("PLANTBALL"));
+    public static final Item ELECTRICTREETAP = add(Item.solid("ELECTRICTREETAP"));
+    public static final Item SMALLPOWERUNIT = add(Item.solid("SMALLPOWERUNIT"));
+    public static final Item REBATTERY = add(Item.solid("REBATTERY"));
     //Buildcraft
     public static final Item BCTANK = add(Item.solid("BCTANK"));
     //TiC
@@ -93,6 +96,9 @@ public class GTNH {
     public static final Item NICKELINGOT = add(Item.solid("NICKELINGOT"));
     public static final Item CUPRONICKELINGOT = add(Item.solid("CUPRONICKELINGOT"));
     public static final Item REDSTONEALLOYINGOT = add(Item.solid("REDSTONEALLOYINGOT"));
+    public static final Item KANTHALINGOT = add(Item.solid("KANTHALINGOT"));
+    public static final Item HOTKANTHALINGOT = add(Item.solid("HOTKANTHALINGOT"));
+    public static final Item ANNEALEDCOPPERINGOT = add(Item.solid("ANNEALEDCOPPERINGOT"));
     static void ingots(){
         Recipe.crafting(IRONINGOT.stack(),TOOLSAW.stack(),IRONNUGGET.stack(9));
         Recipe.furnace(IRONNUGGET.stack(),WROUGHTIRONNUGGET.stack());
@@ -102,6 +108,10 @@ public class GTNH {
         Recipe.alloySmelter(LEADINGOT.stack(4),ANTIMONYINGOT.stack(),BATTERYALLOYINGOT.stack(5)).addRequiredStates(GTNHGameStates.ALLOYSMELTER).priority(100);
         Recipe.alloySmelter(IRONINGOT.stack(2),NICKELINGOT.stack(),INVARINGOT.stack(3)).addRequiredStates(GTNHGameStates.ALLOYSMELTER).priority(100);
         Recipe.electricBlasting(REDSTONEALLOYDUST.stack(),REDSTONEALLOYINGOT.stack()).addRequiredStates(GTNHGameStates.ELECTRICBLASTFURNACE);
+        Recipe.electricBlasting(KANTHALDUST.stack(),KANTHALINGOT.stack()).addRequiredStates(GTNHGameStates.ELECTRICBLASTFURNACE);
+        Recipe.chemicalBath(HOTKANTHALINGOT.stack(),IC2COOLANT.stack(1000),null,HOTIC2COOLANT.stack(250),KANTHALINGOT.stack()).addRequiredStates(GTNHGameStates.CHEMICALBATH.withTier(GTNHGameStates.MV));
+        Recipe.vacuumFreezing(HOTKANTHALINGOT.stack(),KANTHALINGOT.stack()).addRequiredStates(GTNHGameStates.VACUUMFREEZER).priority(100);
+        Recipe.arcFurnace(COPPERINGOT.stack(),ANNEALEDCOPPERINGOT.stack());
     }
     //Bricks
     public static final Item UNFIREDCLAYBRICK = add(Item.solid("UNFIREDCLAYBRICK"));
@@ -122,10 +132,11 @@ public class GTNH {
     public static final Item SMALLCARBONDUST = add(Item.solid("SMALLCARBONDUST"));
     public static final Item SMALLBRONZEDUST = add(Item.solid("SMALLBRONZEDUST"));
     public static final Item SMALLINVARDUST = add(Item.solid("SMALLINVARDUST"));
-
+    public static final Item SMALLGALLIUMARSENIDEDUST = add(Item.solid("SMALLGALLIUMARSENIDEDUST"));
     //DUST NORMAL
     public static final Item FLINTDUST = add(Item.solid("FLINTDUST"));
     public static final Item DUSTRAWRUBBER = add(Item.solid("DUSTRAWRUBBER"));
+    public static final Item GRAPHITEDUST = add(Item.solid("GRAPHITEDUST"));
     public static final Item DUSTSULFUR = add(Item.solid("DUSTSULFUR"));
     public static final Item QUARTZSAND = add(Item.solid("QUARTZSAND"));
     public static final Item GLASSDUST = add(Item.solid("GLASSDUST"));
@@ -153,6 +164,12 @@ public class GTNH {
     public static final Item PYRITEDUST = add(Item.solid("PYRITEDUST"));
     public static final Item RUBYDUST = add(Item.solid("RUBYDUST"));
     public static final Item REDSTONEALLOYDUST = add(Item.solid("REDSTONEALLOYDUST"));
+    public static final Item KANTHALDUST = add(Item.solid("KANTHALDUST"));
+    public static final Item CHROMEDUST = add(Item.solid("CHROMEDUST"));
+    public static final Item IRONDUST = add(Item.solid("IRONDUST"));
+    public static final Item GALLIUMDUST = add(Item.solid("GALLIUMDUST"));
+    public static final Item ARSENICDUST = add(Item.solid("ARSENICDUST"));
+    public static final Item GALLIUMARSENIDEDUST = add(Item.solid("GALLIUMARSENIDEDUST"));
     static void dusts(){
         //Wood pulp
         Recipe.crafting(LOG.stack(),TOOLMORTAR.stack(),WOODPULP.stack(2));
@@ -212,18 +229,24 @@ public class GTNH {
         Recipe.centrifuging(REDSTONE.stack(10),null,SILICONDUST.stack(),PYRITEDUST.stack(5),RUBYDUST.stack(),MERCURYCELL.stack(3)).addRequiredStates(GTNHGameStates.CENTRIFUGE);
         //Redstone alloy
         Recipe.mixing(REDSTONE.stack(),SILICONDUST.stack(),COALDUST.stack(),REDSTONEALLOYDUST.stack(3)).addRequiredStates(GTNHGameStates.MIXER);
-
+        //Kanthal
+        Recipe.mixing(IRONDUST.stack(),ALUMINUMDUST.stack(),CHROMEDUST.stack(),KANTHALDUST.stack(3)).addRequiredStates(GTNHGameStates.MIXER.withTier(GTNHGameStates.MV));
+        //Gallium Arsenide
+        Recipe.mixing(GALLIUMDUST.stack(),ARSENICDUST.stack(),GALLIUMARSENIDEDUST.stack(2)).addRequiredStates(GTNHGameStates.MIXER);
+        Recipe.crafting(GALLIUMARSENIDEDUST.stack(),SMALLGALLIUMARSENIDEDUST.stack(4));
     }
     //FLUIDS
     public static final Item BUCKETOFCONCRETE = add(Item.fluid("BUCKETOFCONCRETE"));
     public static final Item FLUIDCONCRETE = add(Item.fluid("CONCRETE"));
     public static final Item GLUE = add(Item.fluid("GLUE"));
+    public static final Item MOLTENREDSTONE = add(Item.fluid("REDSTONE"));
+    public static final Item MOLTENREDSTONEDUST = add(Item.fluid("REDSTONEDUST"));
     public static final Item MOLTENTIN = add(Item.fluid("TIN"));
     public static final Item MOLTENTININGOT = add(Item.fluid("TININGOT"));
     public static final Item MOLTENLEAD = add(Item.fluid("LEAD"));
     public static final Item MOLTENLEADINGOT = add(Item.fluid("LEADINGOT"));
     public static final Item ETHYLENE = add(Item.fluid("ETHYLENE"));
-    public static final Item POLYETHYLENE = add(Item.fluid("POLYETHYLENE"));
+    public static final Item MOLTENPOLYETHYLENECELL = add(Item.fluid("POLYETHYLENE"));
     public static final Item OXYGENCELL = add(Item.fluid("OXYGENCELL"));
     public static final Item STEAM = add(Item.fluid("STEAM"));
     public static final Item LIGHTFUEL = add(Item.fluid("LIGHTFUEL"));
@@ -234,9 +257,16 @@ public class GTNH {
     public static final Item SEVERELYSTEAMCRACKEDLIGHTFUEL = add(Item.fluid("SEVERELYSTEAMCRACKEDLIGHTFUEL"));
     public static final Item MERCURY = add(Item.fluid("MERCURY"));
     public static final Item MERCURYCELL = add(Item.fluid("MERCURYCELL"));
+    public static final Item IC2COOLANT = add(Item.fluid("IC2COOLANT"));
+    public static final Item IC2COOLANTCELL = add(Item.fluid("IC2COOLANTCELL"));
+    public static final Item HOTIC2COOLANT = add(Item.fluid("HOTIC2COOLANT"));
+    public static final Item MOLTENCUPRONICKELINGOT = add(Item.fluid("MOLTENCUPRONICKELINGOT"));
+    public static final Item MOLTENGLASS = add(Item.fluid("MOLTENGLASS"));
     static void fluids(){
+        Recipe.fluidExtracting(REDSTONE.stack(),MOLTENREDSTONEDUST.stack());
+        Recipe.fluidExtracting(CUPRONICKELINGOT.stack(),MOLTENCUPRONICKELINGOT.stack());
         Recipe.distilling(CREOSOTECELL.stack(25),LUBRICANTCELL.stack(8)).addRequiredStates(GTNHGameStates.DISTILLERY);
-        Recipe.chemicalReactor(ETHYLENE.stack(144),OXYGENCELL.stack(),POLYETHYLENE.stack(216)).addRequiredStates(GTNHGameStates.CHEMICALREACTOR);
+        Recipe.chemicalReactor(ETHYLENE.stack(144),OXYGENCELL.stack(), MOLTENPOLYETHYLENECELL.stack(216)).addRequiredStates(GTNHGameStates.CHEMICALREACTOR);
         Recipe.chemicalReactor(LIGHTFUEL.stack(1000),STEAMCELL.stack(1),SEVERELYSTEAMCRACKEDLIGHTFUEL.stack(250));
         Recipe.fluidHeating(BUCKETOFWATER.stack(6),STEAM.stack(960));
         Recipe.distilling(SEVERELYSTEAMCRACKEDLIGHTFUEL.stack(1000), SMALLCARBONDUST.stack(3),ETHYLENE.stack(250));
@@ -247,6 +277,7 @@ public class GTNH {
     public static final Item REDALLOYROD = add(Item.solid("REDALLOYROD"));
     public static final Item MAGNETICIRONROD = add(Item.solid("MAGNETICIRONROD"));
     public static final Item STEELROD = add(Item.solid("STEELROD"));
+    public static final Item LONGSTEELROD = add(Item.solid("LONGSTEELROD"));
     public static final Item COBALTBRASSROD = add(Item.solid("COBALTBRASSROD"));
     public static final Item BRONZEROD = add(Item.solid("BRONZEROD"));
     public static final Item INVARROD = add(Item.solid("INVARROD"));
@@ -258,6 +289,7 @@ public class GTNH {
         rod(COBALTBRASSINGOT,COBALTBRASSROD,SMALLCOBALTBRASSDUST);
         rod(BRONZEINGOT,BRONZEROD,SMALLBRONZEDUST);
         rod(INVARINGOT,INVARROD,SMALLINVARDUST);
+        Recipe.crafting(STEELROD.stack(2),TOOLHAMMER.stack(),LONGSTEELROD.stack());
         Recipe.crafting(IRONROD.stack(),REDSTONE.stack(4),MAGNETICIRONROD.stack());
         Recipe.polarize(IRONROD.stack(),MAGNETICIRONROD.stack()).addRequiredStates(GTNHGameStates.POLARIZER).priority(100);
     }
@@ -291,6 +323,8 @@ public class GTNH {
     public static final Item CUPRONICKELPLATE = add(Item.solid("CUPRONICKELPLATE"));
     public static final Item MICABASEDSHEET = add(Item.solid("MICABASEDSHEET"));
     public static final Item MICAINSULATORPLATE = add(Item.solid("MICAINSULATORPLATE"));
+    public static final Item KANTHALPLATE = add(Item.solid("KANTHALPLATE"));
+    public static final Item ANNEALEDCOPPERPLATE = add(Item.solid("ANNEALEDCOPPERPLATE"));
     //Double
     public static final Item DOUBLESTEELPLATE = add(Item.solid("DOUBLESTEELPLATE"));
     static void plates(){
@@ -307,6 +341,8 @@ public class GTNH {
         plate(INVARINGOT,INVARPLATE);
         plate(CUPRONICKELINGOT,CUPRONICKELPLATE);
         plate(REDALLOYINGOT,REDALLOYPLATE);
+        plate(KANTHALINGOT,KANTHALPLATE);
+        plate(ANNEALEDCOPPERINGOT,ANNEALEDCOPPERPLATE);
         Recipe.formingPress(MICABASEDPULP.stack(4),ASBESTOSDUST.stack(),MICABASEDSHEET.stack(4)).addRequiredStates(GTNHGameStates.FORMINGPRESS);
         Recipe.alloySmelter(MICABASEDSHEET.stack(4),SILICONDIOXIDEDUST.stack()).addRequiredStates(GTNHGameStates.ALLOYSMELTER);
         Recipe.crafting(STEELPLATE.stack(2),TOOLHAMMER.stack(),DOUBLESTEELPLATE.stack());
@@ -406,6 +442,7 @@ public class GTNH {
         Recipe.assembler(TINRING.stack(),TINPLATE.stack(4),MOLTENLEAD.stack(48),TINROTOR.stack()).priority(50).addRequiredStates(GTNHGameStates.ASSEMBLINGMACHINE);
     }
     //Wires
+    public static final Item ANNEALEDCOPPERWIRE1 = add(Item.solid("ANNEALEDCOPPERWIRE1"));
     public static final Item COPPERWIRE1 = add(Item.solid("COPPERWIRE1"));
     public static final Item COPPERWIRE2 = add(Item.solid("COPPERWIRE2"));
     public static final Item COPPERWIRE4 = add(Item.solid("COPPERWIRE4"));
@@ -419,13 +456,17 @@ public class GTNH {
     public static final Item COPPERCABLE1 = add(Item.solid("COPPERCABLE1"));
     public static final Item TINWIRE1 = add(Item.solid("TINWIRE1"));
     public static final Item TINWIRE2 = add(Item.solid("TINWIRE2"));
+    public static final Item TINWIRE4 = add(Item.solid("TINWIRE4"));
     public static final Item TINCABLE1 = add(Item.solid("TINCABLE1"));
+    public static final Item TINCABLE4 = add(Item.solid("TINCABLE4"));
     public static final Item REDALLOYWIRE1 = add(Item.solid("REDALLOYWIRE1"));
     public static final Item REDALLOYCABLE1 = add(Item.solid("REDALLOYCABLE1"));
     public static final Item GOLDWIRE1 = add(Item.solid("GOLDWIRE1"));
     public static final Item STEELWIRE1 = add(Item.solid("STEELWIRE1"));
     public static final Item CUPRONICKELWIRE1 = add(Item.solid("CUPRONICKELWIRE1"));
     public static final Item CUPRONICKELWIRE2 = add(Item.solid("CUPRONICKELWIRE2"));
+    public static final Item KANTHALWIRE1 = add(Item.solid("KANTHALWIRE1"));
+    public static final Item KANTHALWIRE2 = add(Item.solid("KANTHALWIRE2"));
     static void wires(){
         wire(COPPERINGOT,COPPERPLATE,COPPERWIRE1);
         Recipe.crafting(COPPERWIRE1.stack(2),COPPERWIRE2.stack());
@@ -440,6 +481,11 @@ public class GTNH {
         wire(GOLDINGOT,GOLDPLATE,GOLDWIRE1);
         wire(CUPRONICKELINGOT,CUPRONICKELPLATE,CUPRONICKELWIRE1);
         wire(REDSTONEALLOYINGOT,REDSTONEALLOYPLATE,REDSTONEALLOYWIRE1);
+        wire(KANTHALINGOT,KANTHALPLATE,KANTHALWIRE1);
+        wire(ANNEALEDCOPPERINGOT,ANNEALEDCOPPERPLATE,ANNEALEDCOPPERWIRE1);
+        Recipe.crafting(TINWIRE1.stack(4),TINWIRE4.stack());
+        Recipe.crafting(TINWIRE4.stack(),RUBBERSHEET.stack(2),TINCABLE4.stack());
+        Recipe.crafting(KANTHALWIRE1.stack(2),KANTHALWIRE2.stack());
         Recipe.crafting(REDSTONEALLOYWIRE1.stack(2),REDSTONEALLOYWIRE2.stack());
         Recipe.crafting(REDSTONEALLOYWIRE1.stack(4),REDSTONEALLOYWIRE4.stack());
         Recipe.crafting(REDSTONEALLOYWIRE1.stack(8),REDSTONEALLOYWIRE8.stack());
@@ -455,9 +501,11 @@ public class GTNH {
     //Fine Wire
     public static final Item FINESTEELWIRE = add(Item.solid("FINESTEELWIRE"));
     public static final Item FINECOPPERWIRE = add(Item.solid("FINECOPPERWIRE"));
+    public static final Item FINEANNEALEDCOPPERWIRE = add(Item.solid("FINEANNEALEDCOPPERWIRE"));
     static void finewires(){
         Recipe.wiremill(COPPERWIRE1.stack(), FINECOPPERWIRE.stack(4));
         Recipe.wiremill(STEELWIRE1.stack(), FINESTEELWIRE.stack(4));
+        Recipe.wiremill(ANNEALEDCOPPERWIRE1.stack(),FINEANNEALEDCOPPERWIRE.stack(4));
     }
     static void finewire(Item foil, Item wire, Item fineWire){
         Recipe.crafting(foil.stack(),TOOLWIRECUTTERS.stack(),fineWire.stack());
@@ -517,19 +565,29 @@ public class GTNH {
     //Primitive Blast Furnace
     public static final Item PRIMITIVEBLASTFURNACE = add(Item.solid("PRIMITIVEBLASTFURNACE"));
     //CIRCUITBOARDS
-    public static final Item LVCIRCUITBOARD = add(Item.solid("LVCIRCUITBOARD"));
+    public static final Item CIRCUITBOARD = add(Item.solid("CIRCUITBOARD"));
     public static final Item COATEDCIRCUITBOARD = add(Item.solid("COATEDCIRCUITBOARD"));
+    public static final Item PHENOLICCIRCUITBOARD = add(Item.solid("PHENOLICCIRCUITBOARD"));
+    public static final Item GOODCIRCUITBOARD = add(Item.solid("GOODCIRCUITBOARD"));
     //CIRCUITS
     public static final Item ELECTRONICCIRCUIT = add(Item.solid("ELECTRONICCIRCUIT"));
+    public static final Item GOODELECTRONICCIRCUIT = add(Item.solid("GOODELECTRONICCIRCUIT"));
     public static final Item VACUUMTUBE = add(Item.solid("VACUUMTUBE"));
+    public static final Item DIODE = add(Item.solid("DIODE"));
     public static final Item RESISTOR = add(Item.solid("RESISTOR"));
     //TODO: add assembler options.
     static void circuits(){
+        Recipe.assembler(GLUE.stack(36),WOODPULP.stack(),PHENOLICCIRCUITBOARD.stack()).addRequiredStates(GTNHGameStates.ASSEMBLINGMACHINE);
+        Recipe.crafting(PHENOLICCIRCUITBOARD.stack(),GOLDWIRE1.stack(8),GOODCIRCUITBOARD.stack());
         Recipe.crafting(WOODPLANK.stack(),STICKYRESIN.stack(2),COATEDCIRCUITBOARD.stack());
-        Recipe.crafting(COPPERWIRE1.stack(8),COATEDCIRCUITBOARD.stack(),LVCIRCUITBOARD.stack());
+        Recipe.crafting(COPPERWIRE1.stack(8),COATEDCIRCUITBOARD.stack(), CIRCUITBOARD.stack());
         Recipe.crafting(REDALLOYBOLT.stack(),COPPERWIRE1.stack(3),FINECOPPERWIRE.stack(2),STEELROD.stack(2),GLASSTUBE.stack(),VACUUMTUBE.stack());
         Recipe.crafting(COALDUST.stack(),COPPERWIRE1.stack(2),FINECOPPERWIRE.stack(2),STICKYRESIN.stack(2),RESISTOR.stack());
-        Recipe.crafting(REDALLOYWIRE1.stack(3),VACUUMTUBE.stack(2),LVCIRCUITBOARD.stack(),RESISTOR.stack(2),STEELCASING.stack(),ELECTRONICCIRCUIT.stack());
+        Recipe.crafting(REDALLOYWIRE1.stack(3),VACUUMTUBE.stack(2), CIRCUITBOARD.stack(),RESISTOR.stack(2),STEELCASING.stack(),ELECTRONICCIRCUIT.stack());
+        Recipe.assembler(FINECOPPERWIRE.stack(4),MOLTENGLASS.stack(1000),SMALLGALLIUMARSENIDEDUST.stack(),DIODE.stack(2));
+        Recipe.assembler(FINECOPPERWIRE.stack(4), MOLTENPOLYETHYLENECELL.stack(),SMALLGALLIUMARSENIDEDUST.stack(),DIODE.stack(4)).addRequiredStates(GTNHGameStates.HASPOLYETHYLENE).priority(100);
+        Recipe.assembler(FINEANNEALEDCOPPERWIRE.stack(4), MOLTENPOLYETHYLENECELL.stack(),SMALLGALLIUMARSENIDEDUST.stack(),DIODE.stack(6)).addRequiredStates(GTNHGameStates.HASPOLYETHYLENE,GTNHGameStates.HASANNEALEDCOPPER).priority(200);
+        Recipe.crafting(GOODCIRCUITBOARD.stack(),ELECTRONICCIRCUIT.stack(3),COPPERWIRE1.stack(2),DIODE.stack(2),STEELCASING.stack(),GOODELECTRONICCIRCUIT.stack());
     }
     //CASING
     public static final Item LVMACHINECASING = add(Item.solid("LVMACHINECASING"));
@@ -670,6 +728,17 @@ public class GTNH {
     static void centrifuges(){
         Recipe.crafting(ELECTRONICCIRCUIT.stack(4),TINCABLE1.stack(2),LVMOTOR.stack(2),LVMACHINEHULL.stack(),LVCENTRIFUGE.stack());
     }
+
+    //Arc Furnace
+    public static final Item LVARCFURNACE = add(Item.solid("LVARCFURNACE"));
+    static void arcFurnaces(){
+        Recipe.crafting(TINCABLE4.stack(2),GRAPHITECELL.stack(),ELECTRONICCIRCUIT.stack(2),STEELPLATE.stack(3),LVMACHINEHULL.stack(),LVARCFURNACE.stack());
+    }
+    //Circuit Assemblers
+    public static final Item LVCIRCUITASSEMBLER = add(Item.solid("LVCIRCUITASSEMBLER"));
+    static void circuitAssemblers(){
+        Recipe.crafting(TINCABLE4.stack(2),GRAPHITECELL.stack(),ELECTRONICCIRCUIT.stack(2),STEELPLATE.stack(3),LVMACHINEHULL.stack(),LVARCFURNACE.stack());
+    }
     //EBF
     public static final Item HEATPROOFMACHINECASING = add(Item.solid("HEATPROOFMACHINECASING"));
     public static final Item ELECTRICBLASTFURNACE = add(Item.solid("ELECTRICBLASTFURNACE"));
@@ -679,6 +748,7 @@ public class GTNH {
     public static final Item LVMUFFLERHATCH = add(Item.solid("LVMUFFLERHATCH"));
     public static final Item MAINTENANCEHATCH = add(Item.solid("MAINTENANCEHATCH"));
     public static final Item CUPRONICKELCOILBLOCK = add(Item.solid("CUPRONICKELCOILBLOCK"));
+    public static final Item KANTHALCOILBLOCK = add(Item.solid("KANTHALCOILBLOCK"));
     public static final Item LVENERGYHATCH = add(Item.solid("LVENERGYHATCH"));
     public static final Item LVCOIL = add(Item.solid("LVCOIL"));
 
@@ -687,13 +757,14 @@ public class GTNH {
         Recipe.assembler(MAGNETICIRONROD.stack(),FINESTEELWIRE.stack(16),LVCOIL.stack());
         Recipe.crafting(INVARPLATE.stack(6),INVARFRAMEBOX.stack(),TOOLHAMMER.stack(),TOOLWRENCH.stack(), HEATPROOFMACHINECASING.stack());
         Recipe.crafting(IRONFURNACE.stack(3), HEATPROOFMACHINECASING.stack(),ELECTRONICCIRCUIT.stack(3),TINCABLE1.stack(2),ELECTRICBLASTFURNACE.stack());
-        Recipe.assembler(CHEST.stack(),LVMACHINEHULL.stack(),POLYETHYLENE.stack(144),LVINPUTBUS.stack()).addRequiredStates(GTNHGameStates.ASSEMBLINGMACHINE);
-        Recipe.assembler(CHEST.stack(),LVMACHINEHULL.stack(),POLYETHYLENE.stack(144),LVOUTPUTBUS.stack()).addRequiredStates(GTNHGameStates.ASSEMBLINGMACHINE);
-        Recipe.assembler(BCTANK.stack(),LVMACHINEHULL.stack(),POLYETHYLENE.stack(144),LVINPUTHATCH.stack()).addRequiredStates(GTNHGameStates.ASSEMBLINGMACHINE);
+        Recipe.assembler(CHEST.stack(),LVMACHINEHULL.stack(), MOLTENPOLYETHYLENECELL.stack(144),LVINPUTBUS.stack()).addRequiredStates(GTNHGameStates.ASSEMBLINGMACHINE);
+        Recipe.assembler(CHEST.stack(),LVMACHINEHULL.stack(), MOLTENPOLYETHYLENECELL.stack(144),LVOUTPUTBUS.stack()).addRequiredStates(GTNHGameStates.ASSEMBLINGMACHINE);
+        Recipe.assembler(BCTANK.stack(),LVMACHINEHULL.stack(), MOLTENPOLYETHYLENECELL.stack(144),LVINPUTHATCH.stack()).addRequiredStates(GTNHGameStates.ASSEMBLINGMACHINE);
         Recipe.crafting(TOOLSCREWDRIVER.stack(),TOOLWRENCH.stack(),TOOLWIRECUTTERS.stack(),TOOLHAMMER.stack(),TOOLCROWBAR.stack(),TOOLFILE.stack(),TOOLSAW.stack(),TOOLSOFTMALLET.stack(),LVMACHINEHULL.stack(),MAINTENANCEHATCH.stack());
         Recipe.crafting(LVMACHINEHULL.stack(),LVMOTOR.stack(),BRONZEFLUIDPIPE.stack(),BRONZEROTOR.stack(),LVMUFFLERHATCH.stack());
         Recipe.crafting(ELECTRONICCIRCUIT.stack(),TINCABLE1.stack(2),LUBRICANTCELL.stack(2),LVCOIL.stack(2),LVPUMP.stack(),LVMACHINEHULL.stack(), LVENERGYHATCH.stack());
-        Recipe.assembler(CUPRONICKELWIRE2.stack(8),MICAINSULATORFOIL.stack(8),MOLTENTININGOT.stack(1),CUPRONICKELCOILBLOCK.stack()).addRequiredStates(GTNHGameStates.ASSEMBLINGMACHINE);
+        Recipe.assembler(CUPRONICKELWIRE2.stack(8),MICAINSULATORFOIL.stack(8),MOLTENTININGOT.stack(),CUPRONICKELCOILBLOCK.stack()).addRequiredStates(GTNHGameStates.ASSEMBLINGMACHINE);
+        Recipe.assembler(KANTHALWIRE2.stack(8),MICAINSULATORFOIL.stack(12),MOLTENCUPRONICKELINGOT.stack(),KANTHALCOILBLOCK.stack()).addRequiredStates(GTNHGameStates.ASSEMBLINGMACHINE.withTier(GTNHGameStates.MV));
     }
     //RCTanks
     public static void railcraftTanks(){
@@ -715,9 +786,12 @@ public class GTNH {
         Recipe.assembler(STEELPLATE.stack(),GLASSPANE.stack(),STEELTANKVALVE.stack()).addRequiredStates(GTNHGameStates.ASSEMBLINGMACHINE).priority(100);
     }
 
-
+    public static final Item STEELDRILLTIP = add(Item.solid("STEELDRILLTIP"));
+    public static final Item GRAPHITECELL = add(Item.solid("GRAPHITECELL"));
+    public static final Item CELL = add(Item.solid("CELL"));
     //GT RECIPES
     static void misc(){
+        Recipe.canning(GRAPHITEDUST.stack(),CELL.stack(),GRAPHITECELL.stack()).addRequiredStates(GTNHGameStates.CANNINGMACHINE);
         Recipe.crafting(TOOLSAW.stack(),PLANK.stack(2),STICK.stack(4));
         Recipe.crafting(TOOLSAW.stack(),LOG.stack(),PLANK.stack(4));
         Recipe.crafting(LOG.stack(4),PLANK.stack(4),FLINT.stack(),CHEST.stack());
@@ -739,6 +813,10 @@ public class GTNH {
         Recipe.crafting(IRONROD.stack(3),IRONBARS.stack(4)).addRequiredStates(GTNHGameStates.ASSEMBLINGMACHINE).priority(100);
         Recipe.crafting(STEELROD.stack(6),TOOLHAMMER.stack(),STEELBARS.stack(3));
         Recipe.crafting(STEELROD.stack(3),STEELBARS.stack(4)).addRequiredStates(GTNHGameStates.ASSEMBLINGMACHINE).priority(100);
+        Recipe.crafting(STEELCASING.stack(3),LVMOTOR.stack(),ELECTRONICCIRCUIT.stack(2),COPPERCABLE1.stack(2),TOOLSCREWDRIVER.stack(),SMALLPOWERUNIT.stack());
+        Recipe.fluidCanning(SMALLBATTERYHULL.stack(), MOLTENREDSTONEDUST.stack(2),REBATTERY.stack());
+        Recipe.crafting(STEELPLATE.stack(8),TOOLHAMMER.stack(),STEELDRILLTIP.stack());
+        Recipe.crafting(REBATTERY.stack(),SMALLPOWERUNIT.stack(),LVPUMP.stack(),LONGSTEELROD.stack(2),STEELDRILLTIP.stack(),TINCABLE1.stack(),STEELSCREW.stack(),TOOLSCREWDRIVER.stack(),ELECTRICTREETAP.stack());
     }
     public static void init() {
         misc();
@@ -787,5 +865,7 @@ public class GTNH {
         polarizers();
         centrifuges();
         railcraftTanks();
+        arcFurnaces();
+        circuitAssemblers();
     }
 }
