@@ -25,9 +25,9 @@ public class Main {
             }
         }
         RecipeRoster roster = new RecipeRoster();//LVSelfSustainingCombustionGenerator();
-        roster.add(4,GTNH.GOODELECTRONICCIRCUIT);
+        roster.add(32,GTNH.REINFORCEDOBSIDIAN);
         System.out.println(roster);
-        //System.out.println(ironTankQuest());
+        //System.out.println(steelTankQuest());
     }
 
     public static RecipeRoster ironTankQuest(){
@@ -35,6 +35,13 @@ public class Main {
         roster.add(30,GTNH.IRONTANKWALL);
         roster.add(2,GTNH.IRONTANKVALVE);
         roster.add(2,GTNH.IRONTANKGAUGE);
+        return roster;
+    }
+    public static RecipeRoster steelTankQuest(){
+        RecipeRoster roster = new RecipeRoster();
+        roster.add(30,GTNH.STEELTANKWALL);
+        roster.add(2,GTNH.STEELTANKVALVE);
+        roster.add(2,GTNH.STEELTANKGAUGE);
         return roster;
     }
     /**
