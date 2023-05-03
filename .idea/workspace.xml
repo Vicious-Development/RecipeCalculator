@@ -6,11 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2fb3e187-05d7-45df-b485-6a82d3ff990a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameStates.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GameStates.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeCalculator/calculator/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeCalculator/calculator/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RecipeCalculator/items/GTNH.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RecipeCalculator/items/GTNH.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/calculator/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/calculator/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/items/GTNH.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/items/GTNH.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,6 +86,8 @@
       <workItem from="1651285462325" duration="634000" />
       <workItem from="1651368698130" duration="2339000" />
       <workItem from="1651505364897" duration="1644000" />
+      <workItem from="1651931096192" duration="260000" />
+      <workItem from="1651931434100" duration="20000" />
     </task>
     <servers />
   </component>
